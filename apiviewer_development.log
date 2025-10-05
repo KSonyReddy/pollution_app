@@ -1,2 +1,3 @@
 2025-10-02 09:30:00 -> APIViewer: Draft main index.html document grid and app entry shell
 2025-10-04 14:10:00 -> APIViewer: Create style.css file for request layouts and visual panels
+2025-10-05 11:25:00 -> APIViewer: Add basic app.js file script reference tag to index.html
