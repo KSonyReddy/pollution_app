@@ -15,3 +15,4 @@
 2025-10-24 09:50:00 -> APIViewer: Write basic try-catch loops in script blocks to log server errors
 2025-10-25 14:15:00 -> APIViewer: Color-code server status message codes inside response boxes using CSS
 2025-10-27 11:10:00 -> APIViewer: Add quick response copy elements using document clipboard API
+2025-10-28 15:25:00 -> APIViewer: Create click reset buttons to restore client fields to empty inputs
