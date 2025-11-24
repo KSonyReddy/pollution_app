@@ -13,3 +13,4 @@
 2025-11-20 15:10:00 -> ExpenseManager: Set up unique transaction identification hash keys
 2025-11-21 11:05:00 -> ExpenseManager: Code internal database sorting filters grouped by days
 2025-11-22 14:40:00 -> ExpenseManager: Add structured data serialization channels for text backups
+2025-11-24 10:55:00 -> ExpenseManager: Integrate absolute transaction deletions and constraint flags
