@@ -22,3 +22,4 @@
 2026-02-03 14:15:00 -> FWI: Sanitize environmental datasets and isolate missing variables
 2026-02-05 11:40:00 -> FWI: Convert calendar date formats into seasonal cyclic parameters
 2026-02-06 09:30:00 -> FWI: Normalize target temperature values via scale transformers
+2026-02-08 13:10:00 -> FWI: Calculate preliminary descriptive metrics for wind arrays
