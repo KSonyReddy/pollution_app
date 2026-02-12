@@ -25,3 +25,4 @@
 2026-02-08 13:10:00 -> FWI: Calculate preliminary descriptive metrics for wind arrays
 2026-02-09 15:50:00 -> FWI: Construct Pearson correlation matrices for numeric values
 2026-02-11 10:25:00 -> FWI: Segment relative target features to evaluate forest fire indexes
+2026-02-12 16:15:00 -> FWI: Split incoming datasets cleanly into train/test partitions
