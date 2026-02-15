@@ -27,3 +27,4 @@
 2026-02-11 10:25:00 -> FWI: Segment relative target features to evaluate forest fire indexes
 2026-02-12 16:15:00 -> FWI: Split incoming datasets cleanly into train/test partitions
 2026-02-14 11:00:00 -> FWI: Fit a baseline linear regression estimator to forecast logs
+2026-02-15 14:35:00 -> FWI: Track Mean Absolute Error baseline variations across predictions
