@@ -29,3 +29,4 @@
 2026-02-14 11:00:00 -> FWI: Fit a baseline linear regression estimator to forecast logs
 2026-02-15 14:35:00 -> FWI: Track Mean Absolute Error baseline variations across predictions
 2026-02-17 09:45:00 -> FWI: Implement ensemble random forest regression infrastructure
+2026-02-18 13:20:00 -> FWI: Prune tree depth hyper-parameters to avoid structural overfitting
