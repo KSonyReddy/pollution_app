@@ -42,3 +42,4 @@
 2026-03-03 14:10:00 -> PDF: Inventory interactive form acronym tokens in targeted documents
 2026-03-05 11:25:00 -> PDF: Scrape layout coordinates and dictionary keys from target pages
 2026-03-06 15:40:00 -> PDF: Code alphanumeric entry key field parser into simple utility
+2026-03-08 10:15:00 -> PDF: Wire Boolean checkbox status mappings for document profiles
