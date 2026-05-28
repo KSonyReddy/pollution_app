@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Pollution Reporter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='user_dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='map.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body data-user-id="{{ current_user.id }}">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-welcome">
+                    <i class="fas fa-user"></i>
+                    <h2>Welcome, {{ user.username }}</h2>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                        <i class="fas fa-home"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#submit-report" class="nav-link" data-section="submit-report">
+                        <i class="fas fa-file-alt"></i>
+                        Submit Report
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#your-reports" class="nav-link" data-section="your-reports">
+                        <i class="fas fa-list"></i>
+                        Your Reports
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#messages" class="nav-link" data-section="messages">
+                        <i class="fas fa-envelope"></i>
+                        Messages
+                        {% if unread_messages_count > 0 %}
+                        <span class="notification-badge">{{ unread_messages_count }}</span>
+                        {% endif %}
+                    </a>
+                </li>
+            </ul>
+            <a href="{{ url_for('logout') }}" class="nav-link logout-link">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                                <button type="button" class="close-alert">&times;</button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="content-section active">
+                <div class="content-header">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Your Reports</h3>
+                            <p class="stat-value">{{ user_reports_count }}</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Unread Messages</h3>
+                            <p class="stat-value">{{ unread_messages_count }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="welcome-card">
+                    <h2>Welcome to Pollution Reporter</h2>
+                    <p>This platform allows you to report pollution incidents and stay updated on environmental issues in your area.</p>
+                    <div class="quick-actions">
+                        <a href="#submit-report" class="btn btn-primary" data-section="submit-report">
+                            <i class="fas fa-plus"></i> Submit New Report
+                        </a>
+                        <a href="#your-reports" class="btn btn-secondary" data-section="your-reports">
+                            <i class="fas fa-list"></i> View Your Reports
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Report Section -->
+            <div id="submit-report" class="content-section">
+                <div class="content-header">
+                    <h1>Submit Pollution Report</h1>
+                </div>
+                <div class="form-card">
+                    <form method="POST" action="{{ url_for('submit') }}" id="reportForm">
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <div class="input-group">
+                                <input type="text" id="location" name="location" class="form-control" required>
+                                <button type="button" class="btn btn-secondary" onclick="getUserLocation()">
+                                    <i class="fas fa-map-marker-alt"></i> Use My Location
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pollution_type">Pollution Type</label>
+                            <select name="pollution_type" id="pollution_type" class="form-control" required>
+                                <option value="">Select Type</option>
+                                <option value="air">Air Pollution</option>
+                                <option value="water">Water Pollution</option>
+                                <option value="soil">Soil Pollution</option>
+                                <option value="noise">Noise Pollution</option>
+                                <option value="light">Light Pollution</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="severity">Severity Level</label>
+                            <select name="severity" id="severity" class="form-control" required>
+                                <option value="">Select Severity</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="critical">Critical</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" class="form-control" required 
+                                    placeholder="Please provide detailed information about the pollution incident..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Report
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Your Reports Section -->
+            <div id="your-reports" class="content-section">
+                <div class="content-header">
+                    <h1>Your Reports</h1>
+                </div>
+                
+                <div class="filters">
+                    <select class="filter-select" id="report-type-filter">
+                        <option value="all">All Types</option>
+                        <option value="Air">Air Pollution</option>
+                        <option value="Water">Water Pollution</option>
+                        <option value="Noise">Noise Pollution</option>
+                        <option value="Land">Land Pollution</option>
+                    </select>
+                    <select class="filter-select" id="report-severity-filter">
+                        <option value="all">All Severity</option>
+                        <option value="Low">Low</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="High">High</option>
+                    </select>
+                    <select class="filter-select" id="report-date-filter">
+                        <option value="all">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                    </select>
+                </div>
+
+                <div class="reports-card">
+                    {% if user_reports %}
+                        {% for report in user_reports %}
+                        <div class="report-item" 
+                             data-type="{{ report.pollution_type }}"
+                             data-severity="{{ report.severity }}"
+                             data-date="{{ report.timestamp }}">
+                            <div class="report-header">
+                                <div class="report-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    {{ report.location }}
+                                </div>
+                                <div class="report-meta">
+                                    <span class="report-type">{{ report.pollution_type }}</span>
+                                    <span class="severity-badge {{ report.severity }}">
+                                        {{ report.severity }}
+                                    </span>
+                                    <span class="report-time">
+                                        <i class="fas fa-clock"></i>
+                                        {{ report.timestamp|format_date }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="report-description">
+                                {{ report.description }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="empty-state">
+                            <i class="fas fa-file-alt"></i>
+                            <p>You haven't submitted any reports yet.</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Messages Section -->
+            <div id="messages" class="content-section">
+                <div class="content-header">
+                    <h1>Messages</h1>
+                    <button class="btn btn-primary" onclick="showNewMessageModal()">
+                        <i class="fas fa-plus"></i> New Message
+                    </button>
+                </div>
+                
+                <!-- Tabs for Received and Sent Messages -->
+                <div class="message-tabs">
+                    <button class="tab-button active" onclick="switchMessageTab('received')">Received Messages</button>
+                    <button class="tab-button" onclick="switchMessageTab('sent')">Sent Messages</button>
+                </div>
+                
+                <div class="messages-container">
+                    <!-- Received Messages -->
+                    <div id="received-messages" class="messages-list active">
+                        <div id="messagesList">
+                            <!-- Messages will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Sent Messages -->
+                    <div id="sent-messages" class="messages-list">
+                        <!-- Sent messages will be loaded here -->
+                    </div>
+                    
+                    <div id="messageDetail" class="message-detail">
+                        <div class="empty-state">
+                            <i class="fas fa-envelope"></i>
+                            <p>Select a message to view details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Message Modal -->
+    <div id="newMessageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>New Message</h2>
+                <button class="close-modal" onclick="closeModal('newMessageModal')">&times;</button>
+            </div>
+            <form id="newMessageForm">
+                <div class="form-group">
+                    <label for="recipient">Send To:</label>
+                    <select id="recipient" name="recipient" required>
+                        <option value="">Select Recipient</option>
+                        <option value="admin">Admin</option>
+                        {% for teamhead in teamheads %}
+                            <option value="{{ teamhead.id }}">Teamhead - {{ teamhead.username }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">Message:</label>
+                    <textarea id="content" name="content" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('newMessageModal')">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='user_dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='map.js') }}"></script>
+    <script>
+    document.getElementById('reportForm').addEventListener('submit', function(e) {
+        const location = document.getElementById('location').value.trim();
+        const pollutionType = document.getElementById('pollution_type').value;
+        const severity = document.getElementById('severity').value;
+        const description = document.getElementById('description').value.trim();
+
+        if (!location || !pollutionType || !severity || !description) {
+            e.preventDefault();
+            alert('Please fill in all required fields');
+            return;
+        }
+    });
+
+    // Function to get user's location
+    function getUserLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    
+                    // Use reverse geocoding to get the address
+                    fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('location').value = data.display_name;
+                        })
+                        .catch(error => {
+                            console.error('Error getting location:', error);
+                            alert('Error getting location. Please enter it manually.');
+                        });
+                },
+                function(error) {
+                    console.error('Error getting location:', error);
+                    alert('Error getting location. Please enter it manually.');
+                }
+            );
+        } else {
+            alert('Geolocation is not supported by your browser. Please enter location manually.');
+        }
+    }
+    </script>
+</body>
+</html>

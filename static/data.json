@@ -1,0 +1,576 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.5321,
+            19.6669
+          ]
+        },
+        "properties": {
+          "name": "Adilabad",
+          "severity": "Moderate",
+          "types": {
+            "Air": "50%",
+            "Water": "30%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.6196,
+            17.5514
+          ]
+        },
+        "properties": {
+          "name": "Bhadradri Kothagudem",
+          "severity": "High",
+          "types": {
+            "Air": "80%",
+            "Noise": "65%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.4867,
+            17.385
+          ]
+        },
+        "properties": {
+          "name": "Hyderabad",
+          "severity": "High",
+          "types": {
+            "Air": "85%",
+            "Noise": "70%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.9101,
+            18.7947
+          ]
+        },
+        "properties": {
+          "name": "Jagtial",
+          "severity": "Low",
+          "types": {
+            "Water": "20%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.152,
+            17.721
+          ]
+        },
+        "properties": {
+          "name": "Jangaon",
+          "severity": "Low",
+          "types": {
+            "Air": "25%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.062,
+            18.4386
+          ]
+        },
+        "properties": {
+          "name": "Jayashankar Bhupalpally",
+          "severity": "Moderate",
+          "types": {
+            "Air": "55%",
+            "Water": "40%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.7998,
+            16.2345
+          ]
+        },
+        "properties": {
+          "name": "Jogulamba Gadwal",
+          "severity": "Low",
+          "types": {
+            "Water": "30%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.3411,
+            18.3206
+          ]
+        },
+        "properties": {
+          "name": "Kamareddy",
+          "severity": "Low",
+          "types": {
+            "Air": "20%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.1288,
+            18.4386
+          ]
+        },
+        "properties": {
+          "name": "Karimnagar",
+          "severity": "Moderate",
+          "types": {
+            "Water": "35%",
+            "Noise": "45%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.1514,
+            17.2473
+          ]
+        },
+        "properties": {
+          "name": "Khammam",
+          "severity": "Moderate",
+          "types": {
+            "Air": "60%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.0,
+            19.0
+          ]
+        },
+        "properties": {
+          "name": "Komaram Bheem",
+          "severity": "Low",
+          "types": {
+            "Air": "15%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.0029,
+            17.5982
+          ]
+        },
+        "properties": {
+          "name": "Mahabubabad",
+          "severity": "Moderate",
+          "types": {
+            "Noise": "40%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.9866,
+            16.748
+          ]
+        },
+        "properties": {
+          "name": "Mahabubnagar",
+          "severity": "Low",
+          "types": {
+            "Water": "25%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.4407,
+            18.8709
+          ]
+        },
+        "properties": {
+          "name": "Mancherial",
+          "severity": "Moderate",
+          "types": {
+            "Air": "45%",
+            "Water": "35%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.2608,
+            18.045
+          ]
+        },
+        "properties": {
+          "name": "Medak",
+          "severity": "Low",
+          "types": {
+            "Air": "30%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.5,
+            17.56
+          ]
+        },
+        "properties": {
+          "name": "Medchal\u2013Malkajgiri",
+          "severity": "High",
+          "types": {
+            "Air": "78%",
+            "Noise": "68%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            80.0833,
+            18.1833
+          ]
+        },
+        "properties": {
+          "name": "Mulugu",
+          "severity": "Low",
+          "types": {
+            "Air": "20%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.3251,
+            16.4847
+          ]
+        },
+        "properties": {
+          "name": "Nagarkurnool",
+          "severity": "Low",
+          "types": {
+            "Air": "25%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.2671,
+            17.0541
+          ]
+        },
+        "properties": {
+          "name": "Nalgonda",
+          "severity": "Moderate",
+          "types": {
+            "Water": "50%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.4981,
+            16.7487
+          ]
+        },
+        "properties": {
+          "name": "Narayanpet",
+          "severity": "Low",
+          "types": {
+            "Air": "22%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.3445,
+            19.0969
+          ]
+        },
+        "properties": {
+          "name": "Nirmal",
+          "severity": "Low",
+          "types": {
+            "Air": "20%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.0941,
+            18.6725
+          ]
+        },
+        "properties": {
+          "name": "Nizamabad",
+          "severity": "Low",
+          "types": {
+            "Noise": "28%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.3747,
+            18.6185
+          ]
+        },
+        "properties": {
+          "name": "Peddapalli",
+          "severity": "Moderate",
+          "types": {
+            "Air": "40%",
+            "Water": "35%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.8106,
+            18.3856
+          ]
+        },
+        "properties": {
+          "name": "Rajanna Sircilla",
+          "severity": "Moderate",
+          "types": {
+            "Air": "42%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.4,
+            17.3
+          ]
+        },
+        "properties": {
+          "name": "Ranga Reddy",
+          "severity": "High",
+          "types": {
+            "Air": "83%",
+            "Noise": "66%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.0864,
+            17.6284
+          ]
+        },
+        "properties": {
+          "name": "Sangareddy",
+          "severity": "Moderate",
+          "types": {
+            "Air": "55%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.852,
+            18.101
+          ]
+        },
+        "properties": {
+          "name": "Siddipet",
+          "severity": "Low",
+          "types": {
+            "Air": "30%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.6239,
+            17.1451
+          ]
+        },
+        "properties": {
+          "name": "Suryapet",
+          "severity": "Low",
+          "types": {
+            "Air": "22%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            77.904,
+            17.338
+          ]
+        },
+        "properties": {
+          "name": "Vikarabad",
+          "severity": "Moderate",
+          "types": {
+            "Water": "38%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.0622,
+            16.3632
+          ]
+        },
+        "properties": {
+          "name": "Wanaparthy",
+          "severity": "Low",
+          "types": {
+            "Air": "24%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.5941,
+            17.9784
+          ]
+        },
+        "properties": {
+          "name": "Warangal",
+          "severity": "Moderate",
+          "types": {
+            "Air": "52%",
+            "Noise": "35%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            79.5435,
+            18.009
+          ]
+        },
+        "properties": {
+          "name": "Hanamkonda",
+          "severity": "Moderate",
+          "types": {
+            "Air": "49%"
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            78.9382,
+            17.4905
+          ]
+        },
+        "properties": {
+          "name": "Yadadri Bhuvanagiri",
+          "severity": "Low",
+          "types": {
+            "Air": "30%"
+          }
+        }
+      }
+    ]
+  }
